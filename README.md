@@ -1,101 +1,20 @@
-# paper-scissor-rock-game-
-#include <iostream>
-#include <ctime>
+Rock, Paper, Scissors Game Description:
 
-char getUserChoice();
-char getComputerChoice();
-void showChoice(char choice);
-void chooseWinner(char player, char computer);
+Rock, Paper, Scissors is a simple hand game usually played between two people. Each player simultaneously forms one of three shapes with their hand:
 
-int main() {
+Rock (a closed fist)
 
-	char player;
-	char computer;
+Paper (an open hand)
 
-	player = getUserChoice();
-	std::cout << "Your choice: ";
-	showChoice(player);
+Scissors (a fist with the index and middle fingers extended, forming a V)
 
-	computer = getComputerChoice();
-	std::cout << "Computer's choice: ";
-	showChoice(computer);
+The rules are:
 
-	chooseWinner(player, computer);
- 
-    return 0;
-}
-char getUserChoice(){
+Rock beats Scissors
 
-	char player;
-	std::cout << "Rock-Paper-Scissors Game!\n";
+Scissors beats Paper
 
-	do{
-		std::cout << "Choose one of the following\n";
-		std::cout << "*************************\n";
-		std::cout << "'r' for rock\n";
-		std::cout << "'p' for paper\n";
-		std::cout << "'s' for scissors\n";
-		std::cin >> player;
-	}while(player != 'r' && player != 'p' && player != 's');
+Paper beats Rock
 
-	return player;
-}
-char getComputerChoice(){
+If both players choose the same shape, it's a tie. The game is often used to make a decision or just for fun.
 
-	srand(time(0));
-	int num = rand() % 3 + 1;
-
-	switch(num){
-		case 1: return 'r';
-		case 2: return 'p';
-		case 3: return 's';
-	}
-
-	return 0;
-}
-void showChoice(char choice){
-
-	switch(choice){
-		case 'r': std::cout << "Rock\n";
-				  break;
-		case 'p': std::cout << "Paper\n";
-				  break;
-		case 's': std::cout << "Scissors\n";
-				  break;
-	}
-}
-void chooseWinner(char player, char computer){
-
-	switch(player){
-		case 'r': 	if(computer == 'r'){
-						std::cout << "It's a tie!\n";
-					}
-					else if(computer == 'p'){
-						std::cout << "You lose!\n";
-					}
-					else{
-						std::cout << "You win!\n";
-					}
-					break;
-		case 'p': 	if(computer == 'r'){
-						std::cout << "You win!\n";
-					}
-					else if(computer == 'p'){
-						std::cout << "It's a tie!\n";
-					}
-					else{
-						std::cout << "You lose!\n";
-					}
-					break;
-		case 's': 	if(computer == 'r'){
-						std::cout << "You lose!\n";
-					}
-					else if(computer == 'p'){
-						std::cout << "You win!\n";
-					}
-					else{
-						std::cout << "It's a tie!\n";
-					}
-					break;
-	}
-}
